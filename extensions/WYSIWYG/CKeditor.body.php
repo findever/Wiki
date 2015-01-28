@@ -191,27 +191,27 @@ class CKeditor_MediaWiki {
         if (! in_array($action, array('edit', 'submit'))) return $out;
         $inlineStyles = array();
 
-//        foreach ( $out->styles as $key => $val ) {
-//            if (count($out->styles[$key]) > 0) {
-//                if (isset($out->styles[$key]['condition']) ||
-//                    isset($out->styles[$key]['dir']) ||
-//                    strpos($key, '?') !== false ||
-//                    strpos($key, 'jquery.fancybox') !== false) continue;
-//                $count = 1;
-//                $cssFile = dirname(__FILE__) . '/../../' . str_replace($wgScriptPath, '', $key, $count);
-//                $cssFile = str_replace('//', '/', $cssFile);
-//                if (isset($out->styles[$key]['media']) &&
-//                    file_exists($cssFile)) {
-//                    $cssCont = file_get_contents($cssFile);
-//                    if ($cssCont !== false) {
-//                        if (! isset($inlineStyles[$out->styles[$key]['media']]))
-//                            $inlineStyles[$out->styles[$key]['media']] = '';
-//                        $inlineStyles[$out->styles[$key]['media']] .= $cssCont."\n";
-//                        unset($out->styles[$key]);
-//                    }
-//                }
-//            }
-//        }
+        foreach ( $out->styles as $key => $val ) {
+            if (count($out->styles[$key]) > 0) {
+                if (isset($out->styles[$key]['condition']) ||
+                    isset($out->styles[$key]['dir']) ||
+                    strpos($key, '?') !== false ||
+                    strpos($key, 'jquery.fancybox') !== false) continue;
+                $count = 1;
+                $cssFile = dirname(__FILE__) . '/../../' . str_replace($wgScriptPath, '', $key, $count);
+                $cssFile = str_replace('//', '/', $cssFile);
+                if (isset($out->styles[$key]['media']) &&
+                    file_exists($cssFile)) {
+                    $cssCont = file_get_contents($cssFile);
+                    if ($cssCont !== false) {
+                        if (! isset($inlineStyles[$out->styles[$key]['media']]))
+                            $inlineStyles[$out->styles[$key]['media']] = '';
+                        $inlineStyles[$out->styles[$key]['media']] .= $cssCont."\n";
+                        unset($out->styles[$key]);
+                    }
+                }
+            }
+        }
 
         foreach($inlineStyles as $media => $css ) {
             $out->addInlineStyle( $css );

@@ -266,7 +266,7 @@ class OutputPage extends ContextSource {
 	 * Style again! This seems like a code duplication since we already have
 	 * mStyles. This is what makes Open Source amazing.
 	 */
-	protected $styles = array();
+	public $styles = array();
 
 	/**
 	 * Whether jQuery is already handled.
