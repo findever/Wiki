@@ -118,7 +118,7 @@ $wgDiff3 = "";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "vector";
+$wgDefaultSkin = "bootstrapmediawiki";
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -126,7 +126,7 @@ require_once "$IP/skins/CologneBlue/CologneBlue.php";
 require_once "$IP/skins/Modern/Modern.php";
 require_once "$IP/skins/MonoBook/MonoBook.php";
 require_once "$IP/skins/Vector/Vector.php";
-
+require_once( "$IP/skins/bootstrap-mediawiki/bootstrap-mediawiki.php" );
 
 # End of automatically generated settings.
 # Add more configuration options below.
