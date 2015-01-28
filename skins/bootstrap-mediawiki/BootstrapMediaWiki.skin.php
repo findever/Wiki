@@ -107,13 +107,13 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li>
-							<a href="<?php echo $this->data['nav_urls']['mainpage']['href'] ?>">Home</a>
+							<a href="<?php echo $this->data['nav_urls']['mainpage']['href'] ?>">首页</a>
 							</li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">工具 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="<?php echo $url_prefix; ?>Special:RecentChanges" class="recent-changes"><i class="fa fa-edit"></i> Recent Changes</a></li>
-									<li><a href="<?php echo $url_prefix; ?>Special:SpecialPages" class="special-pages"><i class="fa fa-star-o"></i> Special Pages</a></li>
+									<li><a href="<?php echo $url_prefix; ?>Special:RecentChanges" class="recent-changes"><i class="fa fa-edit"></i> 最近更改</a></li>
+									<li><a href="<?php echo $url_prefix; ?>Special:SpecialPages" class="special-pages"><i class="fa fa-star-o"></i> 特殊页面</a></li>
 									<?php if ( $wgEnableUploads ) { ?>
 									<li><a href="<?php echo $url_prefix; ?>Special:Upload" class="upload-a-file"><i class="fa fa-upload"></i> Upload a File</a></li>
 									<?php } ?>
@@ -152,7 +152,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 					?>
 					<form class="navbar-search navbar-form navbar-right" action="<?php $this->text( 'wgScript' ) ?>" id="searchform" role="search">
 						<div>
-							<input class="form-control" type="search" name="search" placeholder="Search" title="Search <?php echo $wgSitename; ?> [ctrl-option-f]" accesskey="f" id="searchInput" autocomplete="off">
+							<input class="form-control" type="search" name="search" placeholder="搜索" title="搜索 <?php echo $wgSitename; ?> [ctrl-option-f]" accesskey="f" id="searchInput" autocomplete="off">
 							<input type="hidden" name="title" value="Special:Search">
 						</div>
 					</form>

@@ -18,7 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "测试WIKI";
+$wgSitename = "WIKI";
 $wgMetaNamespace = "项目";
 
 ## The URL base path to the directory containing the wiki;
@@ -108,9 +108,9 @@ $wgUpgradeKey = "6a79754ad8b0bf4e";
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
-$wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
-$wgRightsUrl = "";
-$wgRightsText = "";
+$wgRightsPage = "copyright"; # Set to the title of a wiki page that describes your license/copyright
+$wgRightsUrl = "http://www.ifindever.com";
+$wgRightsText = "by ifindever";
 $wgRightsIcon = "";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
@@ -119,6 +119,9 @@ $wgDiff3 = "";
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
 $wgDefaultSkin = "bootstrapmediawiki";
+
+## bootstrapmediawiki主题设置侧边栏
+$wgTOCLocation = 'sidebar';
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -131,3 +134,54 @@ require_once( "$IP/skins/bootstrap-mediawiki/bootstrap-mediawiki.php" );
 # End of automatically generated settings.
 # Add more configuration options below.
 
+### WYSIWYG 编辑器
+
+#13.11.13->
+require_once( "$IP/extensions/WYSIWYG/WYSIWYG.php" );
+
+# Examples of setting permissions using $wgGroupPermissions, for more detailed explanation see:
+#   https://www.mediawiki.org/wiki/Manual:$wgGroupPermissions#Example
+# $wgGroupPermissions['user']['wysiwyg'] = true; //Only registered users are allowed to use wysiwyg
+# $wgGroupPermissions['*']['wysiwyg'] = true;    //Everyone is allowed to use wysiwyg
+$wgGroupPermissions['*']['wysiwyg'] = true;
+
+$wgDefaultUserOptions['cke_show'] = 'richeditor';    //Enable CKEditor
+$wgDefaultUserOptions['riched_use_toggle'] = false;  //Editor can toggle CKEditor/WikiText
+$wgDefaultUserOptions['riched_start_disabled'] = false; //Important!!! else bug...
+$wgDefaultUserOptions['riched_toggle_remember_state'] = true; //working/bug?
+$wgDefaultUserOptions['riched_use_popup'] = false;   //Deprecated
+
+##These are not compatible with WYSIWYG
+$wgFCKEditorExcludedNamespaces[] = NS_MEDIAWIKI;
+$wgFCKEditorExcludedNamespaces[] = NS_TEMPLATE;
+#13.11.13<-
+
+#17.01.14->
+#WikiEditor may not be compatible with WYSIWYG editor, use it with caution.
+require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
+
+# Enables/disables use of WikiEditor by default but still allow users to disable it in preferences
+$wgDefaultUserOptions['usebetatoolbar'] = 1;
+$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
+
+# Displays the Preview and Changes tabs
+$wgDefaultUserOptions['wikieditor-preview'] = 0;
+
+# Displays the Publish and Cancel buttons on the top right side
+$wgDefaultUserOptions['wikieditor-publish'] = 0;
+#17.01.14<-
+
+#27.03.14->
+#This was required by SemanticMediaWiki extension in MW 1.22.4 to prevent startup error:
+$wgLocalisationUpdateDirectory = "$IP/cache";
+
+#These are for SemanticForms:
+//include_once( "$IP/extensions/SemanticForms/SemanticForms.php" );
+//enableSemantics();
+//
+//#Optional excludes of wysiwyg in case SemanticForms and SemanticMediawiki are installed:
+//$wgFCKEditorExcludedNamespaces[] = SF_NS_FORM;
+//$wgFCKEditorExcludedNamespaces[] = SMW_NS_PROPERTY;
+#27.03.14<-
+
+### WYSIWYG 编辑器
