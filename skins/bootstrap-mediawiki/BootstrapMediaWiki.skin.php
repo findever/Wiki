@@ -124,7 +124,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 					<?php
 					if ( $wgUser->isLoggedIn() ) {
 						if ( count( $this->data['personal_urls'] ) > 0 ) {
-							$user_icon = '<span class="user-icon"><img src="https://secure.gravatar.com/avatar/'.md5(strtolower( $wgUser->getEmail())).'.jpg?s=20&r=g"/></span>';
+							$user_icon = '<i class="fa fa-user"></i> ';
 							$name = strtolower( $wgUser->getName() );
 							$user_nav = $this->get_array_links( $this->data['personal_urls'], $user_icon . $name, 'user' );
 							?>
@@ -135,7 +135,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 						}//end if
 
 						if ( count( $this->data['content_actions']) > 0 ) {
-							$content_nav = $this->get_array_links( $this->data['content_actions'], '功能', 'page' );
+							$content_nav = $this->get_array_links( $this->data['content_actions'], '操作', 'page' );
 							?>
 							<ul class="nav navbar-nav navbar-right content-actions"><?php echo $content_nav; ?></ul>
 							<?php
@@ -243,7 +243,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 			<div class="container">
 				<?php $this->includePage('Bootstrap:Footer'); ?>
 				<footer>
-					<p>&copy; <?php echo date('Y'); ?> by <a href="<?php echo (isset($wgCopyrightLink) ? $wgCopyrightLink : 'http://borkweb.com'); ?>"><?php echo (isset($wgCopyright) ? $wgCopyright : 'BorkWeb'); ?></a> 
+					<p>&copy; <?php echo date('Y'); ?> by <a href="<?php echo (isset($wgCopyrightLink) ? $wgCopyrightLink : 'http://ifindever.com'); ?>"><?php echo (isset($wgCopyright) ? $wgCopyright : 'ifinever'); ?></a> 
 						&bull; Powered by <a href="http://mediawiki.org">MediaWiki</a> 
 					</p>
 				</footer>
@@ -426,6 +426,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 			if( 'page' == $which ) {
 				switch( $link['id'] ) {
 				case 'nstab-main': $icon = 'file'; break;
+				case 'nstab-user': $icon = 'user'; break;
 				case 'talk': $icon = 'comment'; break;
 				case 'edit': $icon = 'pencil'; break;
 				case 'history': $icon = 'clock-o'; break;
