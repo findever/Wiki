@@ -114,6 +114,8 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 								<ul class="dropdown-menu">
 									<li><a href="<?php echo $url_prefix; ?>Special:RecentChanges" class="recent-changes"><i class="fa fa-edit"></i> 最近更改</a></li>
 									<li><a href="<?php echo $url_prefix; ?>Special:SpecialPages" class="special-pages"><i class="fa fa-star-o"></i> 特殊页面</a></li>
+									<li><a href="<?php echo $url_prefix; ?>Special:nuke" class="special-pages"><i class="fa fa-remove"></i> 页面管理</a></li>
+									<li><a href="<?php echo $url_prefix; ?>Special:Log/delete" class="special-pages"><i class="fa fa-book"></i> 页面管理日志</a></li>
 									<?php if ( $wgEnableUploads ) { ?>
 									<li><a href="<?php echo $url_prefix; ?>Special:Upload" class="upload-a-file"><i class="fa fa-upload"></i> Upload a File</a></li>
 									<?php } ?>

@@ -185,3 +185,5 @@ $wgLocalisationUpdateDirectory = "$IP/cache";
 #27.03.14<-
 
 ### WYSIWYG 编辑器
+
+require_once "$IP/extensions/Nuke/Nuke.php";
