@@ -135,7 +135,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 						}//end if
 
 						if ( count( $this->data['content_actions']) > 0 ) {
-							$content_nav = $this->get_array_links( $this->data['content_actions'], 'Page', 'page' );
+							$content_nav = $this->get_array_links( $this->data['content_actions'], '功能', 'page' );
 							?>
 							<ul class="nav navbar-nav navbar-right content-actions"><?php echo $content_nav; ?></ul>
 							<?php
@@ -424,26 +424,26 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 			);
 
 			if( 'page' == $which ) {
-				switch( $link['title'] ) {
-				case 'Page': $icon = 'file'; break;
-				case 'Discussion': $icon = 'comment'; break;
-				case 'Edit': $icon = 'pencil'; break;
-				case 'History': $icon = 'clock-o'; break;
-				case 'Delete': $icon = 'remove'; break;
-				case 'Move': $icon = 'arrows'; break;
-				case 'Protect': $icon = 'lock'; break;
-				case 'Watch': $icon = 'eye-open'; break;
-				case 'Unwatch': $icon = 'eye-slash'; break;
+				switch( $link['id'] ) {
+				case 'nstab-main': $icon = 'file'; break;
+				case 'talk': $icon = 'comment'; break;
+				case 'edit': $icon = 'pencil'; break;
+				case 'history': $icon = 'clock-o'; break;
+				case 'delete': $icon = 'remove'; break;
+				case 'move': $icon = 'arrows'; break;
+				case 'protect': $icon = 'lock'; break;
+				case 'watch': $icon = 'eye'; break;
+				case 'unwatch': $icon = 'eye-slash'; break;
 				}//end switch
 
 				$link['title'] = '<i class="fa fa-' . $icon . '"></i> ' . $link['title'];
 			} elseif( 'user' == $which ) {
-				switch( $link['title'] ) {
-				case 'My talk': $icon = 'comment'; break;
-				case 'My preferences': $icon = 'cog'; break;
-				case 'My watchlist': $icon = 'eye-close'; break;
-				case 'My contributions': $icon = 'list-alt'; break;
-				case 'Log out': $icon = 'off'; break;
+				switch( $link['id'] ) {
+				case 'mytalk': $icon = 'comment'; break;
+				case 'preferences': $icon = 'cog'; break;
+				case 'watchlist': $icon = 'eye'; break;
+				case 'mycontris': $icon = 'list-alt'; break;
+				case 'logout': $icon = 'sign-out'; break;
 				default: $icon = 'user'; break;
 				}//end switch
 
