@@ -235,7 +235,7 @@ class BootstrapMediaWikiTemplate extends QuickTemplate {
 				<?php
 					if ( 'sidebar' == $wgTOCLocation ) {
 						?>
-						</section></section>
+						</section></div>
 						<?php
 					}//end if
 				?>

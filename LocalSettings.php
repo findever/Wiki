@@ -73,7 +73,7 @@ $wgMemCachedServers = array();
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads = false;
+$wgEnableUploads = true;
 #$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -121,13 +121,20 @@ $wgDiff3 = "";
 $wgDefaultSkin = "bootstrapmediawiki";
 
 ## bootstrapmediawiki主题设置侧边栏
-$wgTOCLocation = 'sidebar';
+//$wgTOCLocation = 'sidebar';
+
+// 时区
+$wgLocaltimezone = 'Asia/Shanghai';
+
+// 调试
+$wgResourceLoaderDebug = 'on';
+
+// 添加自定义样式和脚本
+$wgSiteCSS = 'custom.css';
+$wgSiteJS = 'custom.js';
 
 # Enabled skins.
 # The following skins were automatically enabled:
-require_once "$IP/skins/CologneBlue/CologneBlue.php";
-require_once "$IP/skins/Modern/Modern.php";
-require_once "$IP/skins/MonoBook/MonoBook.php";
 require_once "$IP/skins/Vector/Vector.php";
 require_once( "$IP/skins/bootstrap-mediawiki/bootstrap-mediawiki.php" );
 
@@ -158,17 +165,17 @@ $wgFCKEditorExcludedNamespaces[] = NS_TEMPLATE;
 
 #17.01.14->
 #WikiEditor may not be compatible with WYSIWYG editor, use it with caution.
-require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
-
-# Enables/disables use of WikiEditor by default but still allow users to disable it in preferences
-$wgDefaultUserOptions['usebetatoolbar'] = 1;
-$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
-
-# Displays the Preview and Changes tabs
-$wgDefaultUserOptions['wikieditor-preview'] = 0;
-
-# Displays the Publish and Cancel buttons on the top right side
-$wgDefaultUserOptions['wikieditor-publish'] = 0;
+//require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
+//
+//# Enables/disables use of WikiEditor by default but still allow users to disable it in preferences
+//$wgDefaultUserOptions['usebetatoolbar'] = 1;
+//$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
+//
+//# Displays the Preview and Changes tabs
+//$wgDefaultUserOptions['wikieditor-preview'] = 0;
+//
+//# Displays the Publish and Cancel buttons on the top right side
+//$wgDefaultUserOptions['wikieditor-publish'] = 0;
 #17.01.14<-
 
 #27.03.14->
